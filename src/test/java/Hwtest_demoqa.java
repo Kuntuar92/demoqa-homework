@@ -48,9 +48,9 @@ public class Hwtest_demoqa {
         $(by("aria-label", "Choose Saturday, July 30th, 2022")).click();
         */
         $("#subjectsInput").click();
-        $("[id=subjectsInput]").setValue("qwerty").pressTab();
+        $("#subjectsInput").setValue("qwerty").pressTab();
         $(by("for", "hobbies-checkbox-1")).click();
-        $("#uploadPicture").uploadFile(new File("src/test/img/homework.jpg"));
+        $("#uploadPicture").uploadFile(new File("src/test/resources/homework.jpg"));
         $("#currentAddress").setValue("Some address 1");
         $("#state").click();
         $("#stateCity-wrapper").$(new ByText("Uttar Pradesh")).click();
@@ -60,8 +60,14 @@ public class Hwtest_demoqa {
 
        // Проверки
         $(".modal-title").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text(userName), text("kairat_test@testtt.comm"),
-                text("Male"), text("8777111111"), text("30 July,1900"), text("Sports"), text("homework.JPG"),
-                text("Some address 1"), text("Uttar Pradesh Agra"));
+        $(".table-responsive").shouldHave(
+                text(userName),
+                text("kairat_test@testtt.comm"),
+                text("Male"), text("8777111111"),
+                text("30 July,1900"),
+                text("Sports"), text("homework.JPG"),
+                text("Some address 1"),
+                text("Uttar Pradesh Agra")
+        );
     }
 }
